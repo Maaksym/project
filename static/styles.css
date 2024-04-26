@@ -1,0 +1,128 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    color: #fff;
+    padding: 0 20%;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+form {
+    display: inline-block;
+}
+
+input[type="text"] {
+    color: white;
+    padding: 5px;
+    width: 200px;
+    border: 1px solid #555;
+    border-radius: 3px;
+    background-color: #444;
+}
+
+input:focus{
+    outline: none;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+    border: 1px solid #555;
+    background-color: #333;
+}
+
+.align-text{
+    text-align: center;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5%;
+}
+.right{
+    flex: 1;
+}
+.delete-btn{
+    background-color: #eb5959;
+}
+.delete-btn:hover{
+    background-color: #bd4646;
+}
+.toggle-btn{
+    background-color: #a9c700;
+    color: black;
+}
+.toggle-btn:hover{
+    background-color: #869d00;
+}
+.stage{
+    display: flex;
+    justify-content: space-between;
+    background-color: #262626;
+}
+.stage-status i{
+    font-size: 22px;
+}
+.stage-status .check{
+    color: #50C878;
+}
+.stage-status .xmark{
+    color: #C70039;
+}
+.name-status-pack{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.name-and-delete{
+    display: flex;
+    align-items: center;
+}
+.delete-project-btn{
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 22px;
+    color: grey;
+}
+.delete-project-btn:hover{
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(178, 178, 178);
+}
+.justify-center{
+    display: flex;
+    justify-content: center;
+}
+.justify-right{
+    display: flex;
+    justify-content: end;
+}

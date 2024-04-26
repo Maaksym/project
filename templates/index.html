@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Manager</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+</head>
+<body>
+    <h1 class="align-text">Project Manager</h1>
+
+    <div class="">
+        <div class="left">
+            <h2 class="align-text">Add Project</h2>
+            <form action="/add_project" method="post" class="justify-center">
+                <input type="text" name="name" placeholder="Project Name" required>
+                <button type="submit">Add Project</button>
+            </form>
+        </div>
+
+        <div class="right">
+            <h2 class="align-text">Projects</h2>
+            <ul>
+                {% for project in projects %}
+                    <li>
+                        <div class="name-and-delete justify-right">
+                            <h2>{{ project.name }}</h2>
+                            <form action="/delete_project/{{ project._id }}" method="get">
+                                <button type="submit" class="delete-project-btn delete-btn">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <h3 class="align-text">Add Stage</h3>
+                        <form action="/add_stage/{{ project._id }}" method="post" class="justify-center">
+                            <input type="text" name="stage_name" placeholder="Stage Name" required>
+                            <button type="submit">Add Stage</button>
+                        </form>
+                        {% if project.stages|length > 0 %}
+                            <h3 class="align-text">Stages</h3>
+                        {% endif %}
+                        <ul>
+                            {% for stage in project.stages %}
+                                <li class="stage">
+                                    <div class="name-status-pack">
+                                        {{ stage.name }}
+                                        <span class="stage-status">
+                                            {% if stage.status != "not completed" %}
+                                            <i class="fa-solid fa-check check"></i>
+                                            {% else %}
+                                            <i class="fa-solid fa-xmark xmark"></i>
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <form action="/delete_stage/{{ project._id }}/{{ loop.index-1 }}" method="get">
+                                            <button type="submit" class="delete-btn">Delete</button>
+                                        </form>
+                                        <form action="/toggle_stage/{{ project._id }}/{{ loop.index-1 }}" method="get">
+                                            <button type="submit" class="toggle-btn">Toggle Status</button>
+                                        </form>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/829441689e.js" crossorigin="anonymous"></script>
+</body>
+</html>
